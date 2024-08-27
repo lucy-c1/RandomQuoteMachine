@@ -1,17 +1,10 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    /* background: #27292c;
-    color: white; */
+    font-family: "roboto";
     text-align: center;
-}
-
-h1 {
-    margin-top: 40px;
+    margin: 0;
 }
 
 #quote-container {
-    /* background-color: #c1d3fe;
-    color: #c1d3fe; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -22,4 +15,65 @@ h1 {
 
 #quote-box {
     background-color: white;
+    padding: 2rem 3rem 2rem 3rem;
+    border-radius: 5px;
+    width: 30rem;
+}
+
+/* style text */
+#text {
+    margin: 0;
+    font-size: 2rem;
+    margin-left: 1rem;
+    font-weight: normal;
+}
+
+#author {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.author-container {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+/* style bottom container */
+.bottom-container {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+#new-quote {
+    font-family: "roboto";
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem 0.8rem 1rem;
+    border-radius: 5px;
+}
+
+.style-a {
+    color: white;
+    background-color: black;
+    padding: 1rem;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+#tweet-quote {
+    margin-right: 0.8rem;
+}
+
+.icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
