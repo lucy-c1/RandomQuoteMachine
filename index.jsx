@@ -82,6 +82,7 @@ function App() {
       fetchNewQuote = {fetchNewQuote}
       backgroundStyle = {styles[1]}
       />
+      <p id = "by-text">by <a href = "https://github.com/lucy-c1/RandomQuoteMachine" target = "_blank">lucy-c1</a></p>
     </div>
   )
 }
