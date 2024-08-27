@@ -7,6 +7,7 @@ function App() {
   const [quoteAuthor, setQuoteAuthor] = React.useState("");
   /* style the background color, text color, a background color and button background color.*/
   const [styles, setStyles] = React.useState({});
+  const colors = ["#D8E5F7", "D8EEDF", "F2D9EF", "#FDF1C9", "#FEDCDB", "D0C3F1", "CEEEF8", "#FFD7EE", "#F5CF9F", "#F5A7A6", "#C2E5CF", "#FFD1D3", "#CDD0F8", "#FFA7A6", "#B8E3E4"]
 
   /* fetch a quote when page loads, also generate a random color*/
   React.useEffect(() => {
@@ -17,14 +18,16 @@ function App() {
   /* generates random color from array of colors*/
   function generateColorStyle() {
     // first one for the quote-container div, the other ones for the button and icons in <Quote /> component
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    const randomColor = colors[randomIndex];
+    console.log(`${randomColor}`);
     const styles = [{
-      backgroundColor: '#c1d3fe',
-      color: '#c1d3fe'
+      backgroundColor: `${randomColor}`,
+      color: `${randomColor}`
     },
     {
-      backgroundColor: '#c1d3fe',
+      backgroundColor: `${randomColor}`,
     }]
-    console.log(styles);
     return styles;
   }
 
@@ -45,10 +48,29 @@ function App() {
   tags: string[]
 }
   */
+
+  async function callAPI() {
+    try {
+      const response = await fetch("https://api.quotable.io/random", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const result = await response.json();
+      setQuoteText(result.content);
+      setQuoteAuthor(result.author);
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  /* call API and generateColorStyle */
   function fetchNewQuote() {
     console.log("fetchNewQuote function called");
-    setQuoteText("I didn’t fail the test. I just found 100 ways to do it wrong.");
-    setQuoteAuthor("Quote author test");
+    setStyles(generateColorStyle());
+    callAPI();
   }
 
 
